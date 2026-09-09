@@ -92,4 +92,4 @@ services:
         max-file: "3"
 
 volumes:
-  postgres_data:
+  pooly_tmp_data:
