@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?La variable POSTGRES_PASSWORD est requise}
       POSTGRES_DB: ${POSTGRES_DB:-pooly}
     volumes:
-      - /volume2/docker/pooly/data:/var/lib/postgresql/data
+      - ${DBFolder:-pooly_tmp_data}:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pooly}"]
       interval: 10s
