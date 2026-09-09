@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?La variable POSTGRES_PASSWORD est requise}
       POSTGRES_DB: ${POSTGRES_DB:-pooly}
     volumes:
-      - ${DBFolder:-pooly_tmp_data}:/var/lib/postgresql/data
+      - ${DBFolder:-/var/lib/postgresql/data}:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pooly}"]
       interval: 10s
@@ -90,6 +90,3 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-
-volumes:
-  pooly_tmp_data:
